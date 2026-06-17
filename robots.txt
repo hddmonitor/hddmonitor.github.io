@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hddmonitor.github.io/sitemap.xml
