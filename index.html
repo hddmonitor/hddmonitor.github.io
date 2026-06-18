@@ -1,498 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Open-Source S.M.A.R.T. Health Monitor for Windows - HDDHealth Monitor</title>
-  <meta name="description" content="HDDHealth Monitor is a 100% free and open-source Windows utility that reads raw S.M.A.R.T. data from ATA/SATA, USB, and NVMe drives. Monitor disk health, temperature, and performance with real-time alerts and history graphs." />
-  <meta name="keywords" content="HDD health monitor, S.M.A.R.T., disk health, NVMe monitor, SSD health, hard drive monitor, Windows disk utility, open source, free disk health, ATA SMART, USB drive monitor, disk temperature" />
-  <meta name="author" content="Ari Sohandri Putra" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://hddmonitor.github.io/" />
-  <link rel="icon" type="image/png" href="logo.png">
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hddmonitor.github.io/" />
-  <meta property="og:title" content="HDDHealth Monitor — Free Open-Source S.M.A.R.T. Health Monitor" />
-  <meta property="og:description" content="Monitor ATA/SATA, USB, and NVMe drive health with S.M.A.R.T. data. 100% free and open-source for Windows." />
-  <meta property="og:image" content="https://hddmonitor.github.io/mainwindow.png" />
-  <meta property="og:site_name" content="HDDHealth Monitor" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Open-Source S.M.A.R.T. Health Monitor - HDDHealth Monitor" />
-  <meta name="twitter:description" content="Monitor ATA/SATA, USB, and NVMe drive health with S.M.A.R.T. data. 100% free and open-source for Windows." />
+  <meta name="title" content="Free Open-Source S.M.A.R.T. Health Monitor for Windows - HDDHealth Monitor">
+  <meta name="description" content="100% free Windows utility that reads raw S.M.A.R.T. data from ATA, USB, and NVMe drives. Monitor disk health, temperature, and performance with a clean modern GUI. Open source under MIT license.">
+  <meta name="keywords" content="S.M.A.R.T, HDD health, SSD health, NVMe monitor, disk health, Windows utility, open source, FOSS, hard drive monitor, health percentage, temperature monitoring, Windows 11, Windows 10, free disk utility">
+  <meta name="author" content="Ari Sohandri Putra">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://arisohandriputra.github.io/HDD-Health-Monitor/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arisohandriputra.github.io/HDD-Health-Monitor/">
+  <meta property="og:title" content="HDDHealth Monitor — Free Open-Source S.M.A.R.T. Health Monitor for Windows">
+  <meta property="og:description" content="100% free Windows utility that reads raw S.M.A.R.T. data from ATA, USB, and NVMe drives. Monitor disk health with a clean modern GUI.">
+  <meta property="og:image" content="https://hddmonitor.github.io/mainwindow.PNG">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://arisohandriputra.github.io/HDD-Health-Monitor/">
+  <meta property="twitter:title" content="HDDHealth Monitor — Free Open-Source S.M.A.R.T. Health Monitor for Windows">
+  <meta property="twitter:description" content="100% free Windows utility that reads raw S.M.A.R.T. data from ATA, USB, and NVMe drives. Monitor disk health with a clean modern GUI.">
+  <meta property="twitter:image" content="https://hddmonitor.github.io/mainwindow.PNG">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "HDDHealth Monitor",
+    "description": "Free open-source S.M.A.R.T. health monitor for ATA, USB, and NVMe drives on Windows.",
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Windows 7 or later",
-    "description": "A free and open-source Windows utility that reads raw S.M.A.R.T. data from physical drives and presents health, temperature, and performance metrics through a clean modern GUI.",
+    "operatingSystem": "Windows 11, Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Vista",
     "author": {
       "@type": "Person",
       "name": "Ari Sohandri Putra",
       "url": "https://github.com/arisohandriputra"
     },
     "license": "https://opensource.org/licenses/MIT",
-    "programmingLanguage": "C++",
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
     },
-    "isAccessibleForFree": true,
-    "softwareVersion": "1.0",
-    "url": "https://hddmonitor.github.io/",
-    "screenshot": "https://github.com/user-attachments/assets/974c3d26-8544-43a2-957b-915e312c5bc6"
+    "programmingLanguage": "C++",
+    "screenshot": "https://hddmonitor.github.io/mainwindow.PNG"
   }
   </script>
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#0f172a">
   <meta name="google-site-verification" content="yOehE9_oovN5P3Z5tTopmRj2YrG6HJ6HdWbGESQ97T8" />
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container nav-container">
-      <a href="#" class="nav-brand" aria-label="HDDHealth Monitor Home">
-        <img src="logo.png" width="50">
-        <span class="nav-title">HDDHealth Monitor</span>
-      </a>
+  <link rel="icon" type="image/png" href="logo.png">
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="hamburger"></span>
-      </button>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      <ul class="nav-menu" id="navMenu" role="menubar">
-        <li role="none"><a href="#features" class="nav-link" role="menuitem">Features</a></li>
-        <li role="none"><a href="#drives" class="nav-link" role="menuitem">Supported Drives</a></li>
-        <li role="none"><a href="#screenshots" class="nav-link" role="menuitem">Screenshots</a></li>
-        <li role="none"><a href="#build" class="nav-link" role="menuitem">Build</a></li>
-        <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
-        <li role="none">
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor" class="nav-link nav-cta" role="menuitem" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    :root {
+      --bg:        #fafbfc;
+      --surface:   #ffffff;
+      --text:      #1e293b;
+      --text-soft: #64748b;
+      --accent:    #2563eb;
+      --accent-dim:#dbeafe;
+      --border:    #e2e8f0;
+      --green:     #16a34a;
+      --green-bg:  #f0fdf4;
+      --radius:    10px;
+      --max-w:     680px;
+      --font:      'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono:      'Cascadia Code', 'Fira Code', 'SF Mono', Consolas, monospace;
+    }
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-badge">
-          <span class="badge-icon" aria-hidden="true">
-            <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-          </span>
-          100% Free &amp; Open Source
-        </div>
+    html { font-size: 16px; scroll-behavior: smooth; }
 
-        <h1 class="hero-title" id="hero-title">
-          Monitor Your Drive Health<br />
-          <span class="hero-title-accent">Before It's Too Late</span>
-        </h1>
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        <p class="hero-subtitle">
-          HDDHealth Monitor reads raw S.M.A.R.T. data directly from your physical drives
-          and presents health, temperature, and performance metrics.
-        </p>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .15s ease;
+    }
+    a:hover { color: #1d4ed8; }
 
-        <div class="hero-actions">
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor/releases" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Latest
-          </a>
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            View on GitHub
-          </a>
-        </div>
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        <div class="hero-meta">
-          <div class="hero-meta-item">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            <span>Windows 7 &ndash; 11</span>
-          </div>
-          <div class="hero-meta-item">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-            <span>ATA / SATA / USB / NVMe</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    .page {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
 
-    <!-- Features Section -->
-    <section class="features" id="features" aria-labelledby="features-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="features-title">Powerful Features</h2>
-          <p class="section-subtitle">Everything you need to keep an eye on your storage devices.</p>
-        </div>
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
 
-        <div class="features-grid">
-          <!-- Feature 1 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3 class="feature-title">Health Percentage</h3>
-            <p class="feature-desc">Instant per-drive health score calculated from S.M.A.R.T. attribute thresholds. Green, yellow, and red status indicators make it easy to spot problems at a glance.</p>
-          </article>
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      margin-bottom: .85rem;
+    }
 
-          <!-- Feature 2 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>
-            </div>
-            <h3 class="feature-title">Temperature Monitoring</h3>
-            <p class="feature-desc">Real-time temperature readings for every drive. Configurable alert thresholds warn you before overheating causes permanent damage to your storage.</p>
-          </article>
+    .logo-wrap img {
+      width: 48px;
+      height: 48px;
+     
+      flex-shrink: 0;
+    }
 
-          <!-- Feature 3 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <h3 class="feature-title">Full S.M.A.R.T. Table</h3>
-            <p class="feature-desc">Complete attribute table showing ID, current value, worst value, raw data, and status for every S.M.A.R.T. attribute. Know exactly what's happening inside your drives.</p>
-          </article>
+    .logo-wrap h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      margin: 0;
+      text-align: left;
+    }
 
-          <!-- Feature 4 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-            </div>
-            <h3 class="feature-title">History Graphs</h3>
-            <p class="feature-desc">Track health percentage and individual attribute values over time with built-in history graphs. Data is persisted between sessions so you can spot long-term trends.</p>
-          </article>
+    .badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-bg);
+      border: 1px solid #bbf7d0;
+      padding: .2rem .7rem;
+      border-radius: 999px;
+      margin-bottom: .85rem;
+    }
 
-          <!-- Feature 5 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-            </div>
-            <h3 class="feature-title">Tray Notifications</h3>
-            <p class="feature-desc">System tray alerts for temperature, health, and predicted failure events. Multi-drive tray icons let you monitor all drives without keeping the window open.</p>
-          </article>
+    header .subtitle {
+      color: var(--text-soft);
+      font-size: .95rem;
+      margin-top: .15rem;
+    }
 
-          <!-- Feature 6 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/><circle cx="12" cy="16" r="1"/></svg>
-            </div>
-            <h3 class="feature-title">Save Screenshots</h3>
-            <p class="feature-desc">One-click PNG screenshot capture of the current drive data. Perfect for sharing diagnostic information in forums, bug reports, or support requests.</p>
-          </article>
+    @media (max-width: 400px) {
+      .logo-wrap { gap: .55rem; }
+      .logo-wrap img { width: 38px; height: 38px; }
+      .logo-wrap h1 { font-size: 1.3rem; }
+    }
 
-          <!-- Feature 7 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            </div>
-            <h3 class="feature-title">USB Hot-Plug Aware</h3>
-            <p class="feature-desc">Automatically detects USB drives when they're connected. Supports JMicron, ASMedia, Realtek, Cypress, Sunplus, Prolific, and other common USB bridge chips.</p>
-          </article>
+    .screenshots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin-bottom: 2.5rem;
+    }
 
-          <!-- Feature 8 -->
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <h3 class="feature-title">Performance Metrics</h3>
-            <p class="feature-desc">Read/write speed benchmarks and NVMe endurance statistics including total bytes written, power-on hours, unsafe shutdowns, and media error counts.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    .screenshots img {
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
 
-    <!-- Supported Drives Section -->
-    <section class="drives" id="drives" aria-labelledby="drives-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="drives-title">Broad Drive Compatibility</h2>
-          <p class="section-subtitle">One tool for every drive type in your system. HDDHealth Monitor talks directly to the hardware.</p>
-        </div>
+    @media (max-width: 520px) {
+      .screenshots { grid-template-columns: 1fr; }
+    }
 
-        <div class="drives-grid">
-          <!-- ATA/SATA -->
-          <article class="drive-card">
-            <div class="drive-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="12" width="40" height="24" rx="3"/><circle cx="38" cy="36" r="2"/><rect x="8" y="16" width="20" height="2" rx="1"/><rect x="8" y="20" width="24" height="2" rx="1"/><rect x="8" y="24" width="18" height="2" rx="1"/></svg>
-            </div>
-            <h3 class="drive-title">ATA / SATA HDD</h3>
-            <p class="drive-desc">Traditional mechanical hard drives connected via SATA or legacy PATA interfaces. Uses <code>IOCTL_ATA_PASS_THROUGH_DIRECT</code> for reliable low-level data access.</p>
-            <div class="drive-tags">
-              <span class="tag">SATA</span>
-              <span class="tag">PATA</span>
-              <span class="tag">HDD</span>
-            </div>
-          </article>
+    section { margin-bottom: 2rem; }
 
-          <!-- NVMe -->
-          <article class="drive-card">
-            <div class="drive-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="36" height="36" rx="2"/><path d="M14 18h20M14 24h20M14 30h14"/><circle cx="36" cy="36" r="3"/></svg>
-            </div>
-            <h3 class="drive-title">NVMe SSD</h3>
-            <p class="drive-desc">Modern NVMe drives via the Microsoft native NVMe driver. Reads Health Info Log (0x02) with full endurance statistics, thermal management data, and 8 temperature sensors.</p>
-            <div class="drive-tags">
-              <span class="tag">NVMe</span>
-              <span class="tag">M.2</span>
-              <span class="tag">PCIe</span>
-            </div>
-          </article>
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: .6rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid var(--border);
+    }
 
-          <!-- USB -->
-          <article class="drive-card">
-            <div class="drive-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="14" y="8" width="20" height="32" rx="2"/><rect x="18" y="4" width="12" height="4" rx="1"/><line x1="20" y1="38" x2="28" y2="38"/><rect x="20" y="14" width="8" height="16" rx="1"/></svg>
-            </div>
-            <h3 class="drive-title">USB Drives</h3>
-            <p class="drive-desc">External drives connected via USB using SAT (SCSI-ATA Translation). Automatically identifies bridge chips from JMicron, ASMedia, Realtek, Cypress, VLI, FMA, and more.</p>
-            <div class="drive-tags">
-              <span class="tag">USB</span>
-              <span class="tag">SAT</span>
-              <span class="tag">Hot-Plug</span>
-            </div>
-          </article>
+    p, li {
+      font-size: .9rem;
+      color: var(--text-soft);
+    }
 
-          <!-- SATA SSD -->
-          <article class="drive-card">
-            <div class="drive-icon" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="14" width="36" height="20" rx="2"/><rect x="10" y="18" width="28" height="12" rx="1"/><line x1="12" y1="22" x2="36" y2="22"/><line x1="12" y1="26" x2="30" y2="26"/><circle cx="40" cy="34" r="1.5"/></svg>
-            </div>
-            <h3 class="drive-title">SATA SSD</h3>
-            <p class="drive-desc">Solid-state drives with S.M.A.R.T. life indicators including SSD life left percentage, total NAND writes, average and max erase counts, and wear leveling statistics.</p>
-            <div class="drive-tags">
-              <span class="tag">SSD</span>
-              <span class="tag">2.5"</span>
-              <span class="tag">Life %</span>
-            </div>
-          </article>
-        </div>
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        <!-- Vendor Support -->
-        <div class="vendor-section">
-          <h3 class="vendor-title">Recognized Drive Vendors</h3>
-          <p class="vendor-desc">Automatic vendor detection for accurate attribute interpretation and health assessment.</p>
-          <div class="vendor-tags">
-            <span class="vendor-tag">Samsung</span>
-            <span class="vendor-tag">Western Digital</span>
-            <span class="vendor-tag">Seagate</span>
-            <span class="vendor-tag">Toshiba / Kioxia</span>
-            <span class="vendor-tag">Hitachi / HGST</span>
-            <span class="vendor-tag">Intel</span>
-            <span class="vendor-tag">Micron / Crucial</span>
-            <span class="vendor-tag">Kingston</span>
-            <span class="vendor-tag">SanDisk</span>
-            <span class="vendor-tag">SK Hynix</span>
-            <span class="vendor-tag">ADATA</span>
-            <span class="vendor-tag">PNY</span>
-            <span class="vendor-tag">Corsair</span>
-            <span class="vendor-tag">Lexar</span>
-            <span class="vendor-tag">Silicon Power</span>
-            <span class="vendor-tag">TeamGroup</span>
-            <span class="vendor-tag">GoodRAM</span>
-            <span class="vendor-tag">Plextor</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    ul li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: .35rem;
+    }
 
-    <!-- Screenshots Section -->
-    <section class="screenshots" id="screenshots" aria-labelledby="screenshots-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="screenshots-title">User-Friendly Interface</h2>
-          <p class="section-subtitle">All the critical information at a glance. No clutter, no confusion.</p>
-        </div>
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
 
-        <div class="screenshots-grid">
-          <figure class="screenshot-card">
-            <img src="mainwindow.png" alt="HDDHealth Monitor main window showing drive health percentage, S.M.A.R.T. attributes table, and system tray integration" loading="lazy" width="379" height="auto" />
-            <figcaption>Main dashboard with health 44% and 84% performance</figcaption>
-          </figure>
-          <figure class="screenshot-card">
-            <img src="https://github.com/user-attachments/assets/5e2d8ec2-0d8b-438c-aec3-5ef92378cc50" alt="HDDHealth Monitor detailed drive information panel showing NVMe health data and endurance statistics" loading="lazy" width="379" height="auto" />
-            <figcaption>Main dashboard with health 93% and NVMe endurance statistics</figcaption>
-          </figure>
-          <figure class="screenshot-card">
-            <img src="historygraph.PNG" alt="HDDHealth Monitor detailed drive information panel showing NVMe health data and endurance statistics" loading="lazy" height="auto" />
-            <figcaption>S.M.A.R.T. History (Read Error rate)</figcaption>
-          </figure>
-          <figure class="screenshot-card">
-            <img src="temphistory.PNG" alt="HDDHealth Monitor detailed drive information panel showing NVMe health data and endurance statistics" loading="lazy" height="auto" />
-            <figcaption>S.M.A.R.T. History (Temperature rate)</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+    code {
+      font-family: var(--mono);
+      font-size: .82em;
+      background: var(--accent-dim);
+      color: #1e40af;
+      padding: .1em .35em;
+      border-radius: 4px;
+    }
 
-    <section class="technical" id="technical" aria-labelledby="technical-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="technical-title">Low-Level Access, High-Level Clarity</h2>
-          <p class="section-subtitle">HDDHealth Monitor goes straight to the hardware, bypassing abstraction layers for accurate data.</p>
-        </div>
+    .compat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: .5rem;
+    }
 
-        <div class="tech-grid">
-          <article class="tech-card">
-            <div class="tech-step" aria-hidden="true">1</div>
-            <h3 class="tech-title">Direct IOCTL Access</h3>
-            <p class="tech-desc">Uses Windows <code>DeviceIoControl</code> API to send ATA/NVMe/SCSI commands directly to physical drives. No WMI overhead, no middleware, no delays. Data is read fresh on every refresh cycle.</p>
-          </article>
-          <article class="tech-card">
-            <div class="tech-step" aria-hidden="true">2</div>
-            <h3 class="tech-title">Multi-Path Probing</h3>
-            <p class="tech-desc">Each drive is probed through multiple access paths (ATA Pass-Through, SAT12/SAT16, Storage Query, NVMe Protocol) to ensure compatibility across different controller and bridge chip combinations.</p>
-          </article>
-          <article class="tech-card">
-            <div class="tech-step" aria-hidden="true">3</div>
-            <h3 class="tech-title">Smart Health Calculation</h3>
-            <p class="tech-desc">Health percentage is computed by comparing each S.M.A.R.T. attribute's current value against its threshold, with special handling for SSD life indicators, NVMe percentage used, and critical warning flags.</p>
-          </article>
-          <article class="tech-card">
-            <div class="tech-step" aria-hidden="true">4</div>
-            <h3 class="tech-title">Native Win32 GUI</h3>
-            <p class="tech-desc">Built with the Win32 API and GDI+ for maximum performance and minimal footprint. The entire application compiles to a single standalone .exe with no external runtime dependencies.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+    .compat-tag {
+      font-size: .75rem;
+      color: var(--text-soft);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: .2rem .6rem;
+      border-radius: 6px;
+    }
 
-    <!-- Build Section -->
-    <section class="build" id="build" aria-labelledby="build-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="build-title">Build from Source</h2>
-          <p class="section-subtitle">HDDHealth Monitor is written in C++ and builds with MinGW-w64 or TDM-GCC.</p>
-        </div>
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .85rem 1rem;
+      overflow-x: auto;
+      margin-top: .5rem;
+    }
 
-        <div class="build-content">
-          <div class="build-requirements">
-            <h3>Prerequisites</h3>
-            <ul>
-              <li><strong>MinGW-w64</strong> or <strong>TDM-GCC</strong> (any recent GCC with C++ support)</li>
-              <li><strong>Make</strong> (comes with MinGW/MSYS2) or <strong>mingw32-make</strong> (TDM-GCC)</li>
-            </ul>
-          </div>
+    pre code {
+      background: none;
+      color: var(--text);
+      padding: 0;
+      font-size: .82rem;
+    }
 
-          <div class="build-steps">
-            <h3>Quick Build</h3>
-            <div class="code-block">
-              <div class="code-header">
-                <span class="code-dots" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                </span>
-                <span class="code-lang">bash</span>
-                <button class="code-copy" data-code="git clone https://github.com/arisohandriputra/HDD-Health-Monitor.git&#10;cd HDD-Health-Monitor&#10;make" aria-label="Copy build commands to clipboard">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  Copy
-                </button>
-              </div>
-              <pre><code>git clone https://github.com/arisohandriputra/HDD-Health-Monitor.git
-cd HDD-Health-Monitor
-make</code></pre>
-            </div>
-            <p class="build-note">The output binary will be placed at <code>bin/HDDHealth.exe</code> &mdash; a single, standalone executable with no external dependencies.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: .5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .85rem;
+      font-weight: 500;
+      padding: .55rem 1.1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: all .15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+    }
+    .btn-ghost:hover {
+      border-color: #cbd5e1;
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      color: var(--text-soft);
+    }
+
+    footer a { color: var(--text-soft); }
+    footer a:hover { color: var(--accent); }
 
    
+    .icon { display: inline-block; vertical-align: -3px; }
+  </style>
+</head>
+<body>
+  <main class="page">
 
-    <!-- About / Author Section -->
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="about-title">About the Author</h2>
-        </div>
+    <header>
+      <div class="logo-wrap">
+        <img src="logo.png" alt="HDDHealth Monitor icon" width="48" height="48">
+        <h1>HDDHealth Monitor</h1>
+      </div>
+      <span class="badge">Free &amp; Open Source</span>
+      <p class="subtitle">Low-level S.M.A.R.T. health monitor for ATA, USB, and NVMe drives on Windows.</p>
+    </header>
 
-        <div class="about-content">
-          <div class="about-card">
-            <div class="about-avatar" aria-hidden="true">
-              <img src="avatar.png" width="40">
-            </div>
-            <div class="about-info">
-              <h3 class="about-name">Ari Sohandri Putra</h3>
-              <p class="about-role">Software Developer &mdash; ARImetic Inc.</p>
-              <p class="about-bio">HDDHealth Monitor was created to provide a truly free, no-nonsense disk health monitoring tool for Windows. No license keys, no trial periods, no premium tiers &mdash; every feature is available to every user, free of charge, forever.</p>
-              <div class="about-links">
-                <a href="https://github.com/arisohandriputra" class="about-link" target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                  GitHub
-                </a>
-                <a href="https://github.com/sponsors/arisohandriputra/" class="about-link about-link-sponsor" target="_blank" rel="noopener noreferrer">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                  Sponsor
-                </a>
-              </div>
-            </div>
-          </div>
+    <figure class="screenshots" aria-label="Application screenshots">
+      <img src="mainwindow.PNG" alt="HDDHealth Monitor main window showing disk health overview" width="379" height="auto" loading="lazy">
+      <img src="https://github.com/user-attachments/assets/5e2d8ec2-0d8b-438c-aec3-5ef92378cc50" alt="HDDHealth Monitor S.M.A.R.T. attribute detail view" width="379" height="auto" loading="lazy">
+      <img src="historygraph.PNG" alt="S.M.A.R.T. History (Read Error rate)" width="379" height="auto" loading="lazy">
+      <img src="temphistory.PNG" alt="S.M.A.R.T. History (Temperature rate)" width="379" height="auto" loading="lazy">
+    </figure>
 
-          <div class="license-card">
-            <div class="license-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-            <div>
-              <h3 class="license-title">MIT License</h3>
-              <p class="license-desc">This project is released under the MIT License. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software. No restrictions, no catches.</p>
-              <a href="https://github.com/arisohandriputra/HDD-Health-Monitor/blob/main/LICENSE" class="license-link" target="_blank" rel="noopener noreferrer">View full license text &rarr;</a>
-            </div>
-          </div>
-        </div>
+    <section>
+      <h2>Get it Now!</h2>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/arisohandriputra/HDD-Health-Monitor/releases" aria-label="Download latest release">
+          <svg viewBox="0 0 16 16" class="icon"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg>
+          Download
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/arisohandriputra/HDD-Health-Monitor" aria-label="View source code on GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path></svg>
+          Source Code
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/arisohandriputra/HDD-Health-Monitor/releases/download/1.1/Documentation.pdf" aria-label="Download PDF Documentation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M5 8.25a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 0 1.5h-4A.75.75 0 0 1 5 8.25ZM4 10.5A.75.75 0 0 0 4 12h4a.75.75 0 0 0 0-1.5H4Z"></path><path d="M13-.005c1.654 0 3 1.328 3 3 0 .982-.338 1.933-.783 2.818-.443.879-1.028 1.758-1.582 2.588l-.011.017c-.568.853-1.104 1.659-1.501 2.446-.398.789-.623 1.494-.623 2.136a1.5 1.5 0 1 0 2.333-1.248.75.75 0 0 1 .834-1.246A3 3 0 0 1 13 16H3a3 3 0 0 1-3-3c0-1.582.891-3.135 1.777-4.506.209-.322.418-.637.623-.946.473-.709.923-1.386 1.287-2.048H2.51c-.576 0-1.381-.133-1.907-.783A2.68 2.68 0 0 1 0 2.995a3 3 0 0 1 3-3Zm0 1.5a1.5 1.5 0 0 0-1.5 1.5c0 .476.223.834.667 1.132A.75.75 0 0 1 11.75 5.5H5.368c-.467 1.003-1.141 2.015-1.773 2.963-.192.289-.381.571-.558.845C2.13 10.711 1.5 11.916 1.5 13A1.5 1.5 0 0 0 3 14.5h7.401A2.989 2.989 0 0 1 10 13c0-.979.338-1.928.784-2.812.441-.874 1.023-1.748 1.575-2.576l.017-.026c.568-.853 1.103-1.658 1.501-2.448.398-.79.623-1.497.623-2.143 0-.838-.669-1.5-1.5-1.5Zm-10 0a1.5 1.5 0 0 0-1.5 1.5c0 .321.1.569.27.778.097.12.325.227.74.227h7.674A2.737 2.737 0 0 1 10 2.995c0-.546.146-1.059.401-1.5Z"></path></svg>
+          Documentation
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/sponsors/arisohandriputra/" aria-label="Sponsor the author on GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M7.655 14.916v-.001h-.002l-.006-.003-.018-.01a22.066 22.066 0 0 1-3.744-2.584C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.044 5.231-3.886 6.818a22.094 22.094 0 0 1-3.433 2.414 7.152 7.152 0 0 1-.31.17l-.018.01-.008.004a.75.75 0 0 1-.69 0Z"></path></svg>
+          Sponsor 
+        </a>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="container">
-        <h2 class="cta-title" id="cta-title">Ready to Protect Your Data?</h2>
-        <p class="cta-desc">Download HDDHealth Monitor and start monitoring your drives today. It takes less than a minute to set up, and it could save you from catastrophic data loss.</p>
-        <div class="cta-actions">
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor/releases" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-            Download Now
-          </a>
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor" class="btn btn-outline btn-large" target="_blank" rel="noopener noreferrer">
-            Browse Source Code
-          </a>
-        </div>
+    <section>
+      <h2>What It Does</h2>
+      <p>HDDHealth Monitor reads raw S.M.A.R.T. data directly from physical drives via <code>DeviceIoControl</code> and presents it through a clean, modern GUI. It supports three drive types through their respective Windows IOCTLs:</p>
+      <ul>
+        <li><strong>ATA / SATA</strong> drives via <code>IOCTL_ATA_PASS_THROUGH_DIRECT</code></li>
+        <li><strong>USB</strong> bridge chips (JMicron, ASMedia, Realtek, Cypress, etc.) via <code>IOCTL_SCSI_PASS_THROUGH_DIRECT</code> using SAT (SCSI-ATA-Translation)</li>
+        <li><strong>NVMe</strong> drives via <code>IOCTL_STORAGE_QUERY_PROPERTY</code>, reading Health Info Log 0x02</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <ul>
+        <li>Per-drive health percentage and performance metric</li>
+        <li>Full S.M.A.R.T. attribute table (ID, value, worst, raw, status)</li>
+        <li>Temperature / health / failure critical alerts via tray notifications</li>
+        <li>Hot-plug aware — USB drives detected on arrival</li>
+        <li>Per-drive history graph (health % and individual attribute over time)</li>
+        <li>Save-screenshot feature (PNG via GDI+)</li>
+        <li>Multi-drive tray icons</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Compatibility</h2>
+      <div class="compat-grid">
+        <span class="compat-tag">Windows 11</span>
+        <span class="compat-tag">Windows 10</span>
+        <span class="compat-tag">Windows 8.1</span>
+        <span class="compat-tag">Windows 8</span>
+        <span class="compat-tag">Windows 7</span>
+        <span class="compat-tag">Windows Vista</span>
       </div>
     </section>
+
+    <section>
+      <h2>Build from Source</h2>
+      <p>Requires <strong>MinGW-w64</strong> or <strong>TDM-GCC</strong> (any recent GCC with C++ support).</p>
+      <pre><code># MinGW / MSYS2
+make
+
+# TDM-GCC
+mingw32-make</code></pre>
+      <p>The output binary is placed at <code>bin/HDDHealth.exe</code>.</p>
+    </section>
+
+    <footer>
+      <span>&copy; 2026 <a href="https://github.com/arisohandriputra">Ari Sohandri Putra</a> &middot; ARImetic Inc.</span>
+      <span><a href="https://opensource.org/licenses/MIT">MIT License</a></span>
+    </footer>
+
   </main>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container footer-container">
-      <div class="footer-left">
-        <div class="footer-brand">
-         <img src="logo.png" width="30">
-          <span>HDDHealth Monitor</span>
-        </div>
-        <p class="footer-desc">100% Free and Open Source Software. No license key, no trial, no activation. All features available forever.</p>
-      </div>
-
-      <div class="footer-right">
-        <div class="footer-links">
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor" target="_blank" rel="noopener noreferrer">Repository</a>
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor/releases" target="_blank" rel="noopener noreferrer">Releases</a>
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor/issues" target="_blank" rel="noopener noreferrer">Issues</a>
-          <a href="https://github.com/arisohandriputra/HDD-Health-Monitor/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
-        </div>
-        <p class="footer-copy">&copy; 2026 Ari Sohandri Putra &middot; ARImetic Inc.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
