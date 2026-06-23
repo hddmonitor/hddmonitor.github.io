@@ -1,0 +1,872 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Full user documentation for HDD Health Monitor: how to use the S.M.A.R.T. attribute table, health and performance meters, alerts, history graph, supported drive types and USB bridge controllers.">
+<meta name="keywords" content="HDD Health Monitor documentation, SMART attribute guide, how to use HDD monitor, disk health guide, NVMe health log, USB bridge SMART support, ATA SATA drive monitor tutorial">
+<meta name="author" content="Ari Sohandri Putra, ARImetic Inc.">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="7 days">
+<meta name="language" content="English">
+<link rel="canonical" href="https://hddmonitor.github.io/docs.html">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Documentation - HDD Health Monitor">
+<meta property="og:description" content="Complete user guide for HDD Health Monitor covering S.M.A.R.T. attributes, health meters, alerts, supported drives (ATA/SATA/NVMe/USB), and history graph.">
+<meta property="og:image" content="img/logo.png">
+<meta property="og:url" content="https://hddmonitor.github.io/docs.html">
+<meta property="og:site_name" content="HDD Health Monitor">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Documentation - HDD Health Monitor">
+<meta name="twitter:description" content="Complete user guide for HDD Health Monitor covering S.M.A.R.T. attributes, health meters, alerts, supported drives (ATA/SATA/NVMe/USB), and history graph.">
+<meta name="twitter:image" content="img/logo.png">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="shortcut icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<title>Documentation - HDD Health Monitor</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-size: large;
+	font-weight: bold;
+}
+a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #0000FF;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0000FF;
+}
+a:active {
+	text-decoration: none;
+	color: #0000FF;
+}
+.style3 {font-size: large}
+.style12 {font-size: small}
+.style18 {
+	font-size: medium;
+	font-style: italic;
+}
+-->
+</style>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="3" cellspacing="3">
+  <tr>
+    <td width="8%"><a href="/"><img src="img/logo.png" width="80" height="80" border="0"></a></td>
+    <td width="92%"><span class="style1"><a href="/">HDD Health Monitor </a></span><br>
+    <em>Free HDD S.M.A.R.T. Health Monitor for Windows</em></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#F0F0F0"><table width="100%" border="0">
+      <tr>
+        <td width="59%" scope="col"><div align="left"><span class="style3">» <a href="/">Home</a> » Documentation » <a href="reportbug.html">Report a Bug</a> » <a href="contact.html">Contact </a>»<a href="https://github.com/sponsors/arisohandriputra/" target="_blank" class="style3"> Donate</a></span> </div></td>
+        <td width="41%" align="right" scope="col"><span class="style3">E-mail : <a href="mailto:arisohandriputra@gmail.com">arisohandriputra@gmail.com</a> </span></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="style18">Author: Ari Sohandri Putra · ARImetic Inc.<br>
+Sponsor: &lt;<a href="https://github.com/sponsors/arisohandriputra/" target="_blank">https://github.com/sponsors/arisohandriputra/</a>&gt;</p>
+
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+    <td width="100%" valign="middle"><strong>Table of Contents</strong>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#requirements">System Requirements</a></li>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#main-window">Main Window</a></li>
+        <li><a href="#health-performance">Health &amp; Performance Meters</a></li>
+        <li><a href="#smart-table">S.M.A.R.T. Attribute Table</a></li>
+        <li><a href="#alerts">Alerts &amp; Notifications</a></li>
+        <li><a href="#history">History Graph</a></li>
+        <li><a href="#tray">System Tray</a></li>
+        <li><a href="#screenshot">Save Screenshot</a></li>
+        <li><a href="#hotplug">Hot-Plug (USB Drive Detection)</a></li>
+        <li><a href="#supported-drives">Supported Drive Types &amp; Controllers</a></li>
+        <li><a href="#supported-vendors">Supported Drive Vendors</a></li>
+        <li><a href="#smart-attributes">S.M.A.R.T. Attribute Reference</a></li>
+        <li><a href="#menus">Menus &amp; Keyboard Shortcuts</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+    </td>
+  </tr>
+</table>
+
+<hr>
+
+<h2><a name="overview">1. Overview</a></h2>
+<p>
+  <strong>HDD Health Monitor</strong> is a 100% free and open-source Windows utility that reads
+  raw <strong>S.M.A.R.T.</strong> (Self-Monitoring, Analysis and Reporting Technology) data
+  directly from your physical drives and presents it in a clean, easy-to-read interface.
+</p>
+<p>
+  S.M.A.R.T. is a built-in system found in almost every modern hard disk drive (HDD), solid-state
+  drive (SSD), NVMe drive, and many USB-connected drives. It continuously collects dozens of
+  internal measurements - such as read error rates, temperatures, reallocated sectors, and power-on
+  hours - that can indicate whether a drive is healthy or starting to fail.
+</p>
+<p>
+  HDD Health Monitor makes all of this information visible to you at a glance, warns you before
+  problems become data loss, and keeps a historical record so you can track changes over time.
+</p>
+
+<h2><a name="requirements">2. System Requirements</a></h2>
+<table width="70%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Item</strong></td>
+    <td><strong>Requirement</strong></td>
+  </tr>
+  <tr>
+    <td>Operating System</td>
+    <td>Windows 11 / 10 / 8.1 / 8 / 7 / Vista</td>
+  </tr>
+  <tr>
+    <td>Privileges</td>
+    <td><strong>Administrator</strong> (required to read S.M.A.R.T. data from the kernel)</td>
+  </tr>
+  <tr>
+    <td>Disk Space</td>
+    <td>Under 2 MB</td>
+  </tr>
+  <tr>
+    <td>RAM</td>
+    <td>Minimal - runs comfortably on any modern PC</td>
+  </tr>
+  <tr>
+    <td>Dependencies</td>
+    <td>None - single standalone <code>.exe</code>, no installer needed</td>
+  </tr>
+</table>
+
+<h2><a name="getting-started">3. Getting Started</a></h2>
+<ol>
+  <li>Download <code>HDDHealthmonitor.exe</code> from the official release page.</li>
+  <li>The program scans all physical drives automatically on startup. No configuration is needed.</li>
+  <li>If you have more than one drive, click the drive buttons along the top of the window to
+      switch between them.</li>
+  <li>The S.M.A.R.T. data refreshes every <strong>5 seconds</strong> automatically.</li>
+</ol>
+<p>
+  The program is a single <code>.exe</code> file - there is no installer, no setup wizard, and
+  nothing is written to your registry during normal use. You can run it directly from any folder,
+  a USB stick, or your Desktop.
+</p>
+
+<h2><a name="main-window">4. Main Window</a></h2>
+<p>The main window is divided into several areas:</p>
+<table width="90%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Area</strong></td>
+    <td><strong>What it shows</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Drive Selector Buttons</strong> (top row)</td>
+    <td>
+      One button per detected physical drive. The button label shows the drive's model name.
+      Click a button to select that drive and view its details. Only one drive is active at a time.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Drive Info Panel</strong></td>
+    <td>
+      Model name, serial number, firmware version, drive type (HDD / SSD / NVMe / USB / M.2 / eMMC),
+      capacity, and temperature in &deg;C.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Health Bar</strong></td>
+    <td>
+      A colored progress bar showing the overall health percentage of the selected drive
+      (0–100%). Green = good, Yellow = caution, Red = bad/failing.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Performance Bar</strong></td>
+    <td>
+      A colored progress bar showing the estimated performance percentage derived from
+      S.M.A.R.T. attributes such as seek error rate and throughput.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>S.M.A.R.T. Attribute Table</strong></td>
+    <td>
+      Full list of S.M.A.R.T. attributes reported by the drive. See
+      <a href="#smart-table">Section 6</a> for details.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Status Bar</strong> (bottom)</td>
+    <td>
+      For ATA/SATA drives: shows counts of Uncorrectable errors, Reallocated sectors,
+      Pending sectors, and Error log events.<br>
+      For NVMe drives: shows Available Spare percentage and Percentage Used.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>History Graph Button</strong></td>
+    <td>Opens the history graph window for the selected drive. See <a href="#history">Section 8</a>.</td>
+  </tr>
+</table>
+
+<h2><a name="health-performance">5. Health &amp; Performance Meters</a></h2>
+<h3>Health Percentage</h3>
+<p>
+  The <strong>Health %</strong> figure gives you a single number (0–100%) that summarizes the
+  condition of your drive. It is calculated from the S.M.A.R.T. attribute values reported by the
+  drive itself:
+</p>
+<table width="70%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Health Range</strong></td>
+    <td><strong>Color</strong></td>
+    <td><strong>Meaning</strong></td>
+  </tr>
+  <tr>
+    <td>70% &gt; 100%</td>
+    <td><font color="#006600"><strong>Green</strong></font></td>
+    <td>Good &gt; drive is healthy</td>
+  </tr>
+  <tr>
+    <td>40% &gt; 69%</td>
+    <td><font color="#996600"><strong>Yellow / Orange</strong></font></td>
+    <td>Caution &gt; one or more attributes are deteriorating; monitor closely</td>
+  </tr>
+  <tr>
+    <td>20% &gt; 39%</td>
+    <td><font color="#990000"><strong>Red (Warning)</strong></font></td>
+    <td>Warning &gt; significant issues detected; consider backing up data</td>
+  </tr>
+  <tr>
+    <td>0% &gt; 19%</td>
+    <td><font color="#CC0000"><strong>Red (Critical)</strong></font></td>
+    <td>Critical &gt; drive failure imminent; back up immediately</td>
+  </tr>
+</table>
+<p>
+  For <strong>NVMe drives</strong>, health is calculated from the drive's own Health Information
+  Log (Log Page 02h), which includes percentage-used lifetime, available spare, and critical
+  warning flags.
+</p>
+<h3>Performance Percentage</h3>
+<p>
+  The <strong>Performance %</strong> meter reflects how well the drive is performing relative to
+  its rated capabilities, based on attributes such as seek error rate, throughput performance, and
+  spin-up time. A new drive typically shows close to 100%. Mechanical wear and increasing error
+  rates will lower this figure over time.
+</p>
+
+<h2><a name="smart-table">6. S.M.A.R.T. Attribute Table</a></h2>
+<p>
+  The attribute table lists every S.M.A.R.T. measurement reported by the currently selected drive.
+  Each row contains:
+</p>
+<table width="90%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Column</strong></td>
+    <td><strong>What it means</strong></td>
+  </tr>
+  <tr>
+    <td><strong>ID</strong></td>
+    <td>
+      The attribute number in hexadecimal (e.g., <code>05h</code>). This is a standard identifier
+      defined by the ATA specification or the drive manufacturer.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Attribute Name</strong></td>
+    <td>
+      A human-readable name for the attribute (e.g., &quot;Reallocated Sectors Count&quot;,
+      &quot;Temperature&quot;).
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Value</strong></td>
+    <td>
+      The current normalized value (typically 0–253). Higher is generally better for most
+      attributes. When this value reaches or falls below the <em>Threshold</em>, the drive flags
+      a potential failure.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Worst</strong></td>
+    <td>
+      The lowest (worst) normalized value this attribute has ever recorded since the drive was
+      manufactured. Useful for spotting past events even if the drive has since recovered.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Raw</strong></td>
+    <td>
+      The actual count or measurement in native units - for example, the real temperature in
+      &deg;C, the actual number of reallocated sectors, or the total power-on hours. This is often
+      the most useful column for everyday monitoring.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Status</strong></td>
+    <td>
+      <strong>OK</strong> &gt; attribute is within normal range.<br>
+      <strong>WARNING</strong> &gt; attribute is approaching its threshold or shows a non-zero count
+      for a critical measurement.<br>
+      <strong>FAILED</strong> &gt; attribute has reached or breached its failure threshold.
+    </td>
+  </tr>
+</table>
+<p>
+  <strong>Tip:</strong> The most important attributes to watch on a traditional HDD are
+  <em>Reallocated Sectors Count</em> (ID 05h), <em>Current Pending Sectors</em> (ID C5h),
+  <em>Uncorrectable Sectors</em> (ID C6h), and <em>Reallocation Event Count</em> (ID C4h).
+  Any non-zero raw value in those four attributes is a warning sign and should not be ignored.
+  For SSDs, also watch <em>Remaining Life Percentage</em> (ID A9h / E7h) and
+  <em>Program Fail Count</em> (ID ABh).
+</p>
+
+<h2><a name="alerts">7. Alerts &amp; Notifications</a></h2>
+<p>
+  HDD Health Monitor watches your drives in the background and pops up a <strong>Windows tray
+  balloon notification</strong> the moment a problem is detected. You do not need to keep the
+  window open - as long as the program is running (even minimized to tray), alerts will appear.
+</p>
+<p>The following conditions trigger automatic notifications:</p>
+<table width="90%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Condition</strong></td>
+    <td><strong>Threshold</strong></td>
+    <td><strong>Severity</strong></td>
+  </tr>
+  <tr>
+    <td>Temperature Warning</td>
+    <td>Drive temperature &ge; <strong>55 &deg;C</strong></td>
+    <td>Warning</td>
+  </tr>
+  <tr>
+    <td>Temperature Critical</td>
+    <td>Drive temperature &ge; <strong>65 &deg;C</strong></td>
+    <td>Critical - power down or improve airflow immediately</td>
+  </tr>
+  <tr>
+    <td>Health Warning</td>
+    <td>Health percentage falls below <strong>40%</strong></td>
+    <td>Warning - back up your data</td>
+  </tr>
+  <tr>
+    <td>Health Critical</td>
+    <td>Health percentage falls below <strong>20%</strong></td>
+    <td>Critical - back up immediately</td>
+  </tr>
+  <tr>
+    <td>S.M.A.R.T. Predictive Failure</td>
+    <td>Drive reports a SMART failure status via the ATA Return Status command</td>
+    <td>Critical</td>
+  </tr>
+  <tr>
+    <td>Reallocated Sectors Detected</td>
+    <td>Raw value of <em>Reallocated Sectors Count</em> (ID 05h) &gt; 0</td>
+    <td>Warning</td>
+  </tr>
+  <tr>
+    <td>Uncorrectable Errors Detected</td>
+    <td>Raw value of <em>Uncorrectable Sectors</em> (ID C6h) &gt; 0</td>
+    <td>Critical</td>
+  </tr>
+  <tr>
+    <td>NVMe Critical Warning</td>
+    <td>Drive sets any critical warning bit in the NVMe Health Log (spare below threshold,
+        temperature exceeded, media errors, etc.)</td>
+    <td>Critical</td>
+  </tr>
+</table>
+<p>
+  Each alert is sent only <strong>once per session</strong> to avoid flooding you with repeated
+  notifications. If the condition clears (e.g., temperature drops back below the warning threshold)
+  and then returns, the alert will fire again.
+</p>
+
+<h2><a name="history">8. History Graph</a></h2>
+<p>
+  The <strong>History Graph</strong> window lets you see how a drive's health has changed over
+  time. To open it, click the <strong>History Graph</strong> button in the main window, or go to
+  <strong>View &rarr; History Graph</strong>.
+</p>
+<p>What the history graph shows:</p>
+<ul>
+  <li>Overall <strong>health percentage</strong> plotted over time as a line graph.</li>
+  <li>Individual <strong>S.M.A.R.T. attribute values</strong> - you can select which attribute
+      to plot from the drop-down list inside the graph window.</li>
+  <li>Each data point represents one recorded snapshot. Snapshots are taken automatically every
+      time the program refreshes drive data (every 5 seconds while running).</li>
+</ul>
+<p>
+  The history data is saved to disk so it persists between sessions - you can close and reopen the
+  program and still see the trend from previous days or weeks.
+</p>
+<p>
+  <strong>Tip:</strong> Use the history graph to spot gradual deterioration that might not be
+  obvious from a single reading. A slowly rising temperature or a slowly increasing reallocated
+  sector count over weeks is a clear early-warning sign.
+</p>
+
+<h2><a name="tray">9. System Tray</a></h2>
+<p>
+  HDD Health Monitor places an icon in the Windows <strong>system tray</strong> (notification area,
+  bottom-right of the taskbar) for every detected drive. Each tray icon shows the drive's current
+  health percentage as a small colored number:
+</p>
+<table width="60%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Icon Color</strong></td>
+    <td><strong>Meaning</strong></td>
+  </tr>
+  <tr>
+    <td><font color="#006600"><strong>Green</strong></font></td>
+    <td>Health &ge; 70% - drive is healthy</td>
+  </tr>
+  <tr>
+    <td><font color="#996600"><strong>Yellow / Orange</strong></font></td>
+    <td>Health 40%–69% - caution</td>
+  </tr>
+  <tr>
+    <td><font color="#CC0000"><strong>Red</strong></font></td>
+    <td>Health &lt; 40% - warning or critical</td>
+  </tr>
+  <tr>
+    <td><strong>Blue</strong></td>
+    <td>Health data not yet available (drive still being scanned)</td>
+  </tr>
+</table>
+<p>
+  <strong>Right-clicking</strong> a tray icon shows a small menu with two options:
+</p>
+<ul>
+  <li><strong>Open HDDHealth Monitor</strong> &gt; brings the main window back to focus.</li>
+  <li><strong>Exit</strong> &gt; closes the program completely.</li>
+</ul>
+<p>
+  When you click the window's close button (&times;), the program <strong>minimizes to tray</strong>
+  rather than quitting, so monitoring and alerts continue running in the background. To exit fully,
+  use <strong>File &rarr; Exit</strong> or right-click the tray icon and choose <strong>Exit</strong>.
+</p>
+
+<h2><a name="screenshot">10. Save Screenshot</a></h2>
+<p>
+  You can save a PNG image of the main window at any time. This is useful for sharing your drive's
+  S.M.A.R.T. data with a technician or posting it in a support forum.
+</p>
+<p>To save a screenshot:</p>
+<ul>
+  <li>Go to <strong>File &rarr; Save Screenshot</strong>, or press <strong>Ctrl+S</strong>.</li>
+  <li>The image is saved automatically - no file dialog appears.</li>
+  <li>
+    The file is saved in your <strong>Documents</strong> folder under a subfolder called
+    <code>HDDH_Screenshots\</code>, with a filename that includes the date and time
+    (e.g., <code>HDDH_20260622_143055.png</code>).
+  </li>
+  <li>After saving, a confirmation dialog appears with the full file path and an option to open
+      the screenshots folder immediately.</li>
+</ul>
+
+<h2><a name="hotplug">11. Hot-Plug (USB Drive Detection)</a></h2>
+<p>
+  HDD Health Monitor is <strong>hot-plug aware</strong>. When you connect a USB drive while the
+  program is running, it automatically detects the new drive and adds it to the drive selector
+  within about 1–2 seconds. No restart is required.
+</p>
+<p>
+  Similarly, when you safely remove or unplug a USB drive, the program removes its button and
+  tray icon automatically.
+</p>
+<p>
+  <strong>Note:</strong> Whether S.M.A.R.T. data is available for a USB drive depends on the
+  USB bridge chip inside the drive enclosure. See <a href="#supported-drives">Section 12</a> for
+  supported USB bridge chips.
+</p>
+
+<h2><a name="supported-drives">12. Supported Drive Types &amp; Controllers</a></h2>
+<p>
+  HDD Health Monitor supports the following drive types and uses the appropriate low-level
+  communication method for each:
+</p>
+<table width="95%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Drive / Interface Type</strong></td>
+    <td><strong>Access Method</strong></td>
+    <td><strong>Notes</strong></td>
+  </tr>
+  <tr>
+
+    <td><strong>ATA / SATA HDD &amp; SSD</strong></td>
+    <td>ATA Pass-Through Direct (<code>IOCTL_ATA_PASS_THROUGH_DIRECT</code>), with fallback to
+        Legacy SMART IOCTL</td>
+    <td>Full S.M.A.R.T. support including attribute table, error log, and self-test log</td>
+  </tr>
+  <tr>
+    <td><strong>M.2 SATA SSD</strong></td>
+    <td>Same as SATA above</td>
+    <td>Identified separately as M.2 SATA type</td>
+  </tr>
+  <tr>
+    <td><strong>NVMe SSD</strong> (internal PCIe / M.2)</td>
+    <td>Windows Storage Query Property (<code>IOCTL_STORAGE_QUERY_PROPERTY</code>), reading
+        NVMe Health Information Log (Log Page 02h)</td>
+    <td>Shows NVMe-specific attributes: Available Spare, Percentage Used, Power-On Hours,
+        Power Cycles, Unsafe Shutdowns, Media &amp; Data Integrity Errors, and temperature sensors</td>
+  </tr>
+  <tr>
+    <td><strong>USB Drives — Standard SAT</strong></td>
+    <td>SCSI-ATA Translation (SAT) via <code>IOCTL_SCSI_PASS_THROUGH_DIRECT</code> using
+        ATA PASS-THROUGH (A1h / 85h commands)</td>
+    <td>Works with most modern USB enclosures that implement SAT properly</td>
+  </tr>
+  <tr>
+    <td><strong>USB - JMicron Bridge</strong></td>
+    <td>JMicron vendor-specific protocol</td>
+    <td>Supports JMicron chips: 152D:0578, 152D:0565, and related models</td>
+  </tr>
+  <tr>
+    <td><strong>USB - ASMedia Bridge</strong></td>
+    <td>ASMedia vendor-specific protocol</td>
+    <td>Supports ASMedia chips (174C:xxxx series)</td>
+  </tr>
+  <tr>
+    <td><strong>USB - Realtek Bridge</strong></td>
+    <td>Realtek vendor-specific protocol</td>
+    <td>Supports Realtek bridge chips (0BDA:xxxx series)</td>
+  </tr>
+  <tr>
+    <td><strong>USB - Cypress / I-O Data Bridge</strong></td>
+    <td>Cypress vendor-specific protocol</td>
+    <td>Supports Cypress (04B4:6830) and I-O Data bridge chips</td>
+  </tr>
+  <tr>
+    <td><strong>USB - Prolific Bridge</strong></td>
+    <td>Prolific vendor-specific protocol</td>
+    <td>Supports Prolific chips (067B:2773 and related)</td>
+  </tr>
+  <tr>
+    <td><strong>USB - Sunplus Bridge</strong></td>
+    <td>Sunplus vendor-specific protocol</td>
+    <td>Supports Sunplus chips (04FC:0C25 and related)</td>
+  </tr>
+  <tr>
+    <td><strong>USB - Logitec Bridge</strong></td>
+    <td>Logitec vendor-specific protocol</td>
+    <td>Supports Logitec USB-SATA bridge chips</td>
+  </tr>
+  <tr>
+    <td><strong>USB NVMe - JMicron NVMe Bridge</strong></td>
+    <td>JMicron NVMe-over-USB vendor protocol</td>
+    <td>Supports JMicron NVMe bridges: 152D:0583, 152D:0586, and related</td>
+  </tr>
+  <tr>
+    <td><strong>USB NVMe - ASMedia NVMe Bridge</strong></td>
+    <td>ASMedia NVMe-over-USB vendor protocol</td>
+    <td>Supports ASMedia NVMe bridge 174C:2362 and related</td>
+  </tr>
+  <tr>
+    <td><strong>USB NVMe - Realtek NVMe Bridge</strong></td>
+    <td>Realtek NVMe-over-USB vendor protocol</td>
+    <td>Supports Realtek NVMe bridge 0BDA:9210 and related</td>
+  </tr>
+  <tr>
+    <td><strong>USB NVMe - VLI Bridge</strong></td>
+    <td>VLI VL716/VL717 NVMe vendor protocol</td>
+    <td>Supports VLI chips 2109:0900 and related</td>
+  </tr>
+  <tr>
+    <td><strong>USB NVMe - FMA Bridge</strong></td>
+    <td>FMA NL6221 NVMe vendor protocol</td>
+    <td>Supports FMA bridge 0BDA:9220 and related</td>
+  </tr>
+  <tr>
+    <td><strong>USB - ASMedia ASM1352R RAID</strong></td>
+    <td>ASMedia ASM1352R dual-drive RAID bridge protocol</td>
+    <td>Supports ASMedia ASM1352R (174C:1352)</td>
+  </tr>
+  <tr>
+    <td><strong>SCSI</strong></td>
+    <td>SCSI Log Sense (page 0x2F / 0x0D)</td>
+    <td>Reads temperature and limited health data from SCSI/SAS drives</td>
+  </tr>
+</table>
+<p>
+  <strong>Note:</strong> If your USB drive enclosure uses a bridge chip not listed above, the
+  program will still attempt a generic SAT connection. If that fails, the S.M.A.R.T. data will
+  not be available but the drive will still appear in the drive list with its model and capacity.
+</p>
+
+<h2><a name="supported-vendors">13. Supported Drive Vendors</a></h2>
+<p>
+  HDD Health Monitor recognizes drives from the following manufacturers and applies any
+  vendor-specific S.M.A.R.T. attribute mappings automatically:
+</p>
+<table width="60%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Brand</strong></td>
+    <td><strong>Notes</strong></td>
+  </tr>
+  <tr><td>Samsung</td><td>HDD &amp; SSD; vendor-specific SSD attributes supported</td></tr>
+  <tr><td>Western Digital (WDC)</td><td>HDD &amp; SSD; helium drive attributes supported</td></tr>
+  <tr><td>Seagate</td><td>HDD &amp; SSD; vendor-specific attribute mappings</td></tr>
+  <tr><td>Toshiba</td><td>HDD &amp; SSD</td></tr>
+  <tr><td>Hitachi / HGST</td><td>HDD</td></tr>
+  <tr><td>Intel</td><td>SSD; End-to-End Error Detection attribute supported</td></tr>
+  <tr><td>Micron / Crucial</td><td>SSD; Uncorrectable Error Count attribute supported</td></tr>
+  <tr><td>Kingston</td><td>SSD; Erase Fail Count attribute supported</td></tr>
+  <tr><td>SanDisk</td><td>SSD</td></tr>
+  <tr><td>SK Hynix</td><td>SSD; SATA PHY Error Count attribute supported</td></tr>
+  <tr><td>Kioxia (Toshiba Memory)</td><td>SSD &amp; NVMe</td></tr>
+  <tr><td>ADATA</td><td>SSD; Average Erase Count attribute supported</td></tr>
+  <tr><td>PNY</td><td>SSD</td></tr>
+  <tr><td>Corsair</td><td>SSD</td></tr>
+  <tr><td>Lexar</td><td>SSD &amp; Flash</td></tr>
+  <tr><td>Silicon Power</td><td>SSD</td></tr>
+  <tr><td>Team Group</td><td>SSD</td></tr>
+  <tr><td>GoodRAM</td><td>SSD</td></tr>
+  <tr><td>Plextor</td><td>SSD</td></tr>
+  <tr><td>OCZ</td><td>SSD</td></tr>
+  <tr><td>Other / Unknown</td><td>Standard ATA S.M.A.R.T. attributes used</td></tr>
+</table>
+
+<h2><a name="smart-attributes">14. S.M.A.R.T. Attribute Reference</a></h2>
+<p>
+  The table below lists all S.M.A.R.T. attributes that HDD Health Monitor can display, their IDs,
+  and what they mean in plain language. Not every drive reports every attribute - you will only see
+  the ones your particular drive supports.
+</p>
+<p>
+  <strong>Criticality key:</strong><br>
+  <font color="#CC0000"><strong>&#9679; Critical</strong></font> &gt; A non-zero raw value or a failed
+  threshold is a serious warning sign. Back up your data immediately.<br>
+  <font color="#996600"><strong>&#9679; Advisory</strong></font> &gt; Worth watching; deterioration
+  here may indicate developing problems.<br>
+  <strong>&#9675; Informational</strong> &gt; Normal operational counters; not directly linked to
+  failure prediction.
+</p>
+
+<h3>Standard ATA S.M.A.R.T. Attributes</h3>
+<table width="95%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>ID</strong></td>
+    <td><strong>Name</strong></td>
+    <td><strong>Criticality</strong></td>
+    <td><strong>What it means</strong></td>
+  </tr>
+  <tr><td>01h</td><td>Raw Read Error Rate</td><td><font color="#996600">Advisory</font></td>
+      <td>Rate of hardware read errors. Some manufacturers (e.g., Seagate) start this at a high raw value - check the <em>normalized value</em> against the threshold rather than the raw number.</td>
+  </tr>
+  <tr><td>02h</td><td>Throughput Performance</td><td>Informational</td>
+      <td>Overall throughput efficiency of the drive.</td></tr>
+  <tr><td>03h</td><td>Spin-Up Time</td><td>Informational</td>
+      <td>Time (in milliseconds) for the drive platters to reach operating speed on startup. Increasing values can indicate a weakening spindle motor.</td></tr>
+  <tr><td>04h</td><td>Start/Stop Count</td><td>Informational</td>
+      <td>Total number of spindle start/stop cycles since manufacture.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>05h</strong></td><td bgcolor="#FFF0F0"><strong>Reallocated Sectors Count</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Number of bad sectors that have been found and remapped to spare areas. <strong>Any non-zero value is a red flag.</strong> A rising count means the drive surface is deteriorating.</td></tr>
+  <tr><td>07h</td><td>Seek Error Rate</td><td><font color="#996600">Advisory</font></td>
+      <td>Rate of positioning errors when the read/write head moves to a new location. High rates can indicate mechanical wear or head alignment problems.</td></tr>
+  <tr><td>08h</td><td>Seek Time Performance</td><td>Informational</td>
+      <td>Average efficiency of seek operations.</td></tr>
+  <tr><td>09h</td><td>Power-On Hours</td><td>Informational</td>
+      <td>Total number of hours the drive has been powered on since manufacture. Useful for estimating age and remaining lifespan.</td></tr>
+  <tr><td>0Ah</td><td>Spin Retry Count</td><td><font color="#CC0000">Critical</font></td>
+      <td>Number of times the drive had to retry spinning up. Any retries indicate mechanical problems with the spindle motor.</td></tr>
+  <tr><td>0Bh</td><td>Calibration Retry Count</td><td>Informational</td>
+      <td>Number of times the drive had to recalibrate its heads.</td></tr>
+  <tr><td>0Ch</td><td>Power Cycle Count</td><td>Informational</td>
+      <td>Total number of times the drive has been powered on and off.</td></tr>
+  <tr><td>16h</td><td>Current Helium Level</td><td><font color="#996600">Advisory</font></td>
+      <td>For helium-filled drives (e.g., some WDC/HGST models). Indicates remaining helium pressure. A drop may indicate a seal leak.</td></tr>
+  <tr><td>1Ah</td><td>Remaining Rated Life</td><td><font color="#996600">Advisory</font></td>
+      <td>Estimated percentage of rated life remaining (primarily on enterprise SSDs).</td></tr>
+  <tr><td>0Dh</td><td>Soft Read Error Rate</td><td><font color="#996600">Advisory</font></td>
+      <td>Rate of errors that were corrected by the drive's ECC engine without needing a reallocation.</td></tr>
+  <tr><td>BEh</td><td>Airflow Temperature</td><td>Informational</td>
+      <td>Air temperature measured inside the drive casing.</td></tr>
+  <tr><td>BFh</td><td>G-Sense Error Rate</td><td>Informational</td>
+      <td>Errors caused by shock or vibration. Relevant for laptop drives.</td></tr>
+  <tr><td>C0h</td><td>Power-Off Retract Count</td><td>Informational</td>
+      <td>Number of times the heads were retracted due to sudden power loss.</td></tr>
+  <tr><td>C1h</td><td>Load/Unload Cycle Count</td><td>Informational</td>
+      <td>Total number of times the heads have been loaded and unloaded from the parking ramp (common on laptop drives with Automatic Acoustic Management).</td></tr>
+  <tr><td>C2h</td><td>Temperature</td><td>Informational</td>
+      <td>Current drive temperature in &deg;C. Displayed prominently in the drive info panel.</td></tr>
+  <tr><td>C3h</td><td>Hardware ECC Recovered</td><td>Informational</td>
+      <td>Number of errors corrected by hardware Error Correction Code. A count here does not necessarily mean the drive is failing - all drives do some ECC correction.</td>
+  </tr>
+  <tr><td bgcolor="#FFF0F0"><strong>C4h</strong></td><td bgcolor="#FFF0F0"><strong>Reallocation Event Count</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Total number of reallocation attempts (successful or not). A non-zero value confirms bad sectors have occurred on this drive.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>C5h</strong></td><td bgcolor="#FFF0F0"><strong>Current Pending Sectors</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Sectors that the drive suspects are unstable and has flagged for reallocation on the next write. <strong>Any non-zero value is urgent.</strong> These may cause read errors right now.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>C6h</strong></td><td bgcolor="#FFF0F0"><strong>Uncorrectable Sectors</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Sectors that could not be read or written even after multiple retries and ECC correction. <strong>Any non-zero value means permanent data loss has occurred</strong> in those locations.</td></tr>
+  <tr><td>C7h</td><td>UltraDMA CRC Error Count</td><td><font color="#996600">Advisory</font></td>
+      <td>Errors in data transfer between the drive and the host controller via the SATA/ATA cable. Non-zero values often indicate a faulty cable or connector rather than a failing drive - try replacing the data cable first.</td>
+  </tr>
+  <tr><td bgcolor="#FFF0F0"><strong>C8h</strong></td><td bgcolor="#FFF0F0"><strong>Write Error Rate</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Rate of errors during write operations.</td></tr>
+  <tr><td>BCh</td><td>Command Timeout</td><td><font color="#996600">Advisory</font></td>
+      <td>Number of commands that timed out during operation.</td></tr>
+  <tr><td>BDh</td><td>High Fly Writes</td><td>Informational</td>
+      <td>Number of write operations performed when the read/write head was flying too high above the platter (detected by an internal sensor).</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>BBh</strong></td><td bgcolor="#FFF0F0"><strong>Uncorrectable ECC Error</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">ECC errors that could not be corrected. Indicates serious media problems.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>B8h</strong></td><td bgcolor="#FFF0F0"><strong>End-to-End Error</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Errors detected when data was compared between the drive's internal buffer and the storage media. Indicates a data integrity problem.</td></tr>
+  <tr><td>B7h</td><td>SATA Downshift Error Count</td><td><font color="#996600">Advisory</font></td>
+      <td>Number of times the SATA link speed was downgraded due to communication errors. May indicate cable or controller issues.</td></tr>
+  <tr><td>EFh</td><td>SATA PHY Error Count</td><td><font color="#996600">Advisory</font></td>
+      <td>Physical layer errors on the SATA interface.</td></tr>
+  <tr><td>F1h</td><td>Total LBAs Written</td><td>Informational</td>
+      <td>Total amount of data written to the drive over its lifetime (in logical block addresses). On SSDs this is important for estimating remaining write endurance.</td></tr>
+  <tr><td>F2h</td><td>Total LBAs Read</td><td>Informational</td>
+      <td>Total amount of data read from the drive over its lifetime.</td></tr>
+</table>
+
+<h3>SSD-Specific Attributes</h3>
+<table width="95%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>ID</strong></td>
+    <td><strong>Name</strong></td>
+    <td><strong>Criticality</strong></td>
+    <td><strong>What it means</strong></td>
+  </tr>
+  <tr><td>A9h / E7h</td><td>Remaining Life Percentage / SSD Life Left</td><td><font color="#996600">Advisory</font></td>
+      <td>Estimated percentage of the SSD's write endurance remaining. When this reaches 0%, the SSD has exhausted its rated P/E cycle budget - it may still function, but is no longer guaranteed by the manufacturer.</td>
+  </tr>
+  <tr><td bgcolor="#FFF0F0"><strong>ABh</strong></td><td bgcolor="#FFF0F0"><strong>Program Fail Count</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Number of flash programming (write) failures. Any non-zero value indicates failing NAND flash cells.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>ACh</strong></td><td bgcolor="#FFF0F0"><strong>Erase Fail Count</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Number of flash erase failures. Non-zero values indicate damaged NAND cells.</td></tr>
+  <tr><td>ADh</td><td>Wear Leveling Count</td><td>Informational</td>
+      <td>Number of times the SSD's wear leveling algorithm has cycled through the NAND blocks. Higher values mean the drive has been used more heavily.</td></tr>
+  <tr><td>AEh</td><td>Unexpected Power Loss</td><td>Informational</td>
+      <td>Number of times the SSD experienced a sudden power cut while write operations were in progress.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>AFh</strong></td><td bgcolor="#FFF0F0"><strong>Power Loss Protection Fail</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">The SSD's capacitor-based power-loss protection circuit failed to complete a save during a power outage.</td></tr>
+  <tr><td>A0h</td><td>Unsafe Shutdown Count</td><td>Informational</td>
+      <td>Number of times the SSD was powered off without a clean shutdown sequence.</td></tr>
+  <tr><td>E9h</td><td>NAND Writes (GB) / Media Wearout</td><td>Informational</td>
+      <td>Total gigabytes written to the NAND flash, or a media wearout indicator (vendor-specific interpretation).</td></tr>
+  <tr><td>EAh</td><td>Average Erase Count / Total Writes</td><td>Informational</td>
+      <td>Average number of erase cycles across all NAND blocks, or total host writes (vendor-specific).</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>FCh</strong></td><td bgcolor="#FFF0F0"><strong>Newly Added Bad Flash Block</strong></td>
+      <td bgcolor="#FFF0F0"><font color="#CC0000"><strong>Critical</strong></font></td>
+      <td bgcolor="#FFF0F0">Number of NAND flash blocks that have been marked bad during operation (in addition to factory-bad blocks).</td></tr>
+</table>
+
+<h3>NVMe Health Log Attributes</h3>
+<p>For NVMe drives, the following values from the NVMe Health Information Log (Log Page 02h) are displayed:</p>
+<table width="95%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Field</strong></td>
+    <td><strong>ID</strong></td>
+    <td><strong>What it means</strong></td>
+  </tr>
+  <tr><td>Available Spare</td><td>03h</td><td>Percentage of spare NVMe blocks remaining (starts at 100%).</td></tr>
+  <tr><td>Available Spare Threshold</td><td>04h</td><td>The minimum spare percentage set by the manufacturer. A critical warning fires when Available Spare falls below this.</td></tr>
+  <tr><td>Percentage Used</td><td>05h</td><td>Drive manufacturer's estimate of the percentage of rated life used (0–255%). Values over 100% mean the drive has exceeded its rated endurance.</td></tr>
+  <tr><td>Power On Hours</td><td>09h</td><td>Total hours the NVMe drive has been powered on.</td></tr>
+  <tr><td>Power Cycles</td><td>0Ch</td><td>Total number of power cycles.</td></tr>
+  <tr><td>Unsafe Shutdowns</td><td>10h</td><td>Number of unclean power-off events.</td></tr>
+  <tr><td bgcolor="#FFF0F0"><strong>Media and Data Integrity Errors</strong></td><td bgcolor="#FFF0F0">11h</td>
+      <td bgcolor="#FFF0F0"><strong>Critical</strong> - count of unrecovered data integrity errors. Any non-zero value is serious.</td>
+  </tr>
+</table>
+
+<h2><a name="menus">15. Menus &amp; Keyboard Shortcuts</a></h2>
+<table width="70%" border="1" cellpadding="4" cellspacing="0">
+  <tr bgcolor="#F0F0F0">
+    <td><strong>Menu</strong></td>
+    <td><strong>Item</strong></td>
+    <td><strong>Shortcut</strong></td>
+    <td><strong>Action</strong></td>
+  </tr>
+  <tr>
+    <td>File</td>
+    <td>Save Screenshot</td>
+    <td><strong>Ctrl+S</strong></td>
+    <td>Save a PNG image of the main window to your Documents\HDDH_Screenshots\ folder</td>
+  </tr>
+</table>
+
+<h2><a name="faq">16. Frequently Asked Questions</a></h2>
+
+<p><strong>Q: The attribute table shows &quot;Run as Administrator and click Refresh&quot;. What do I do?</strong><br>
+A: Close the program, then right-click <code>HDDHealthmonitor.exe</code> and choose
+<em>Run as administrator</em>. S.M.A.R.T. data requires administrator-level access to the
+Windows kernel driver.</p>
+
+<p><strong>Q: My USB drive shows up but the S.M.A.R.T. table is empty or shows no data.</strong><br>
+A: The USB bridge chip inside your enclosure may not support S.M.A.R.T. pass-through, or it may
+use a protocol not yet supported. The drive will still appear in the list with its model name and
+capacity, but health data will not be available. Try a different enclosure if you need S.M.A.R.T.
+readings from that drive.</p>
+
+<p><strong>Q: I see a non-zero Reallocated Sectors count. Should I be worried?</strong><br>
+A: Yes. Even a single reallocated sector means the drive has found a bad spot on the disk and
+moved data away from it. A small count (1–5) on an older drive may be stable for a long time, but
+<strong>any non-zero value is a signal to back up your data now</strong> and replace the drive when
+convenient. A rising count is urgent - replace the drive immediately.</p>
+
+<p><strong>Q: The health percentage suddenly dropped. Is the drive about to fail?</strong><br>
+A: A sudden drop usually means a new S.M.A.R.T. attribute has crossed its threshold or a critical
+raw value (like pending sectors) has appeared. Check the attribute table for any rows showing
+<em>WARNING</em> or <em>FAILED</em> status. Back up your data as a precaution and monitor the
+drive closely over the next few days.</p>
+
+<p><strong>Q: My NVMe drive's &quot;Percentage Used&quot; shows 0%. Is it new?</strong><br>
+A: Not necessarily - it means less than 1% of the rated write endurance has been consumed. NVMe
+drives with heavy workloads will show increasing values over months or years. The drive is
+perfectly fine until this number approaches 100%.</p>
+
+<p><strong>Q: The temperature alert fired but my room is cool. Is something wrong?</strong><br>
+A: The alert threshold is 55 &deg;C (warning) and 65 &deg;C (critical). HDDs and SSDs run hotter
+than room temperature, especially under load or in enclosed cases with poor airflow. Check that
+your PC case fans are working and that the drive has adequate clearance. Sustained temperatures
+above 55 &deg;C will shorten the drive's lifespan.</p>
+
+<p><strong>Q: How do I stop the program from running in the background?</strong><br>
+A: Right-click the tray icon and choose <strong>Exit</strong>, or go to
+<strong>File &rarr; Exit</strong>. Simply closing the main window only minimizes the program to
+the tray; it keeps running until you explicitly exit.</p>
+
+<p><strong>Q: Can I run this on more than one drive at the same time?</strong><br>
+A: Yes. HDD Health Monitor scans and monitors <em>all</em> physical drives simultaneously. Each
+drive gets its own tray icon, and alerts are generated independently for each. Use the drive
+selector buttons at the top of the window to switch the detail view between drives.</p>
+
+<p><strong>Q: Where are the history files stored?</strong><br>
+A: History data is saved alongside the executable in the same folder where
+<code>HDDHealthmonitor.exe</code> is located, so keep the program in a folder where you have write
+permission (not in <code>C:\Program Files\</code> unless you run as Administrator).</p>
+
+<p><strong>Q: Is this program free? Does it expire?</strong><br>
+A: Yes, HDD Health Monitor is 100% free and open-source software (MIT License). It does not
+expire, does not nag, and does not require registration. If you find it useful, consider
+supporting the author via
+<a href="https://github.com/sponsors/arisohandriputra/" target="_blank">GitHub Sponsors</a>.</p>
+
+<hr>
+<p class="style12">Copyright &copy; 2026 ARImetic Inc. All Rights Reserved</p>
+</body>
+</html>

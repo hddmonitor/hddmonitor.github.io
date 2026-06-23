@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="HDD Health Monitor is a free portable Windows utility that reads raw S.M.A.R.T. data from ATA, SATA, NVMe, and USB drives to monitor health, temperature, and predict drive failure in real time.">
+<meta name="keywords" content="HDD health monitor, SMART monitor Windows, free hard drive health tool, NVMe health monitor, SSD health check, disk health Windows, SMART attributes, hard drive failure warning, free disk utility, portable HDD tool, ATA SMART, USB drive health, HDDHealth">
+<meta name="author" content="Ari Sohandri Putra, ARImetic Inc.">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="7 days">
+<meta name="language" content="English">
+<link rel="canonical" href="https://hddmonitor.github.io/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free HDD S.M.A.R.T. Health Monitor for Windows - HDD Health Monitor">
+<meta property="og:description" content="Free portable Windows tool to monitor HDD, SSD, NVMe and USB drive health via S.M.A.R.T. Real-time tray alerts, history graph, no install needed.">
+<meta property="og:image" content="img/logo.png">
+<meta property="og:url" content="https://hddmonitor.github.io/">
+<meta property="og:site_name" content="HDD Health Monitor">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free HDD S.M.A.R.T. Health Monitor for Windows - HDD Health Monitor">
+<meta name="twitter:description" content="Free portable Windows tool to monitor HDD, SSD, NVMe and USB drive health via S.M.A.R.T. Real-time tray alerts, history graph, no install needed.">
+<meta name="twitter:image" content="img/logo.png">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="shortcut icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HDD Health Monitor",
+  "operatingSystem": "Windows",
+  "applicationCategory": "UtilitiesApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Ari Sohandri Putra" },
+  "description": "Free portable Windows utility that reads raw S.M.A.R.T. data from ATA, SATA, NVMe, and USB drives to monitor health, temperature, and failure risk in real time.",
+  "url": "https://hddmonitor.github.io/",
+  "image": "https://hddmonitor.github.io/img/logo.png",
+  "softwareVersion": "1.1",
+  "downloadUrl": "https://hddmonitor.github.io/files/HDDHealthMonitor.exe",
+  "license": "https://opensource.org/licenses/MIT"
+}
+</script>
+<title>Free HDD S.M.A.R.T. Health Monitor for Windows - HDD Health Monitor</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-size: large;
+	font-weight: bold;
+}
+a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #0000FF;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0000FF;
+}
+a:active {
+	text-decoration: none;
+	color: #0000FF;
+}
+.style2 {color: #FF3300}
+.style3 {font-size: large}
+.style4 {font-weight: bold}
+.style5 {
+	color: #FF0000;
+	font-style: italic;
+	font-weight: bold;
+}
+.style6 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style7 {
+	color: #666666;
+	font-style: italic;
+}
+.style8 {color: #666666}
+.style12 {font-size: small}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellpadding="3" cellspacing="3">
+  <tr>
+    <td width="8%"><a href="/"><img src="img/logo.png" width="80" height="80" border="0"></a></td>
+    <td width="92%"><span class="style1"><a href="/">HDD Health Monitor </a></span><br>
+    <em>Free HDD S.M.A.R.T. Health Monitor for Windows</em></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#F0F0F0"><table width="100%" border="0">
+      <tr>
+        <td width="59%" scope="col"><div align="left"><span class="style3">» Home » <a href="docs.html">Documentation</a> » <a href="reportbug.html">Report a Bug</a> » <a href="contact.html">Contact </a>»<a href="https://github.com/sponsors/arisohandriputra/" target="_blank" class="style3"> Donate</a></span> </div></td>
+        <td width="41%" align="right" scope="col"><span class="style3">E-mail : <a href="mailto:arisohandriputra@gmail.com">arisohandriputra@gmail.com</a> </span></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<p>Low-level <a href="https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology" target="_blank">S.M.A.R.T.</a> health monitor for ATA, USB (External, Enclosure), and NVMe drives on Windows.</p>
+<p><a href="/"><strong>HDDHealth</strong></a> Monitor reads raw <a href="https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology" target="_blank">S.M.A.R.T.</a> data directly from physical drives via <a href="https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol" target="_blank">DeviceIoControl </a>and presents it through a clean, modern GUI. It supports three drive types through their respective Windows IOCTLs:</p>
+<ul>
+  <li><strong>ATA / SATA</strong> drives via <span class="style2"><a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddscsi/ni-ntddscsi-ioctl_ata_pass_through_direct" target="_blank">IOCTL_ATA_PASS_THROUGH_DIRECT</a></span></li>
+  <li><strong>USB</strong> bridge chips (JMicron, ASMedia, Realtek, Cypress, etc.) via <span class="style2"><a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddscsi/ni-ntddscsi-ioctl_scsi_pass_through_direct" target="_blank">IOCTL_SCSI_PASS_THROUGH_DIRECT</a></span> using SAT (<a href="https://www.t10.org/ftp/t10/document.04/04-196r0.pdf" target="_blank">SCSI-ATA-Translation</a>)</li>
+  <li><strong>NVMe</strong> drives via <span class="style2"><a href="https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ni-winioctl-ioctl_storage_query_property" target="_blank">IOCTL_STORAGE_QUERY_PROPERTY</a></span>, reading Health Info Log <strong>0x02</strong></li>
+</ul>
+<table width="100%" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+    <td width="40%" valign="top"><p><img src="img/overview.PNG" width="100%"></p></td>
+    <td width="60%" valign="middle"><table width="442" border="1" cellpadding="3" cellspacing="0">
+      <tr>
+        <td colspan="3" bgcolor="#FFFFCC"><span class="style3"><strong>Download HDD Health Monitor 1.1 (Portable) </strong></span></td>
+      </tr>
+      <tr>
+        <td width="31%" align="center" bgcolor="#CCFFFF"><strong>Server</strong></td>
+        <td width="32%" align="center" bgcolor="#CCFFFF"><strong>Download Link </strong></td>
+        <td width="37%" align="center" bgcolor="#CCFFFF"><strong>Source Code </strong></td>
+      </tr>
+      <tr>
+        <td align="center">Mainpage</td>
+        <td align="center"><a href="files/HDDHealthMonitor.exe">Download </a>(1.4 MB) </td>
+        <td align="center"><a href="https://github.com/arisohandriputra/HDD-Health-Monitor" target="_blank">Github Repo </a></td>
+      </tr>
+      <tr>
+        <td align="center">Internet Archive </td>
+        <td align="center"><a href="https://archive.org/download/hddhealth-monitor/HDDHealthMonitor.exe">Download </a>(1.4 MB) </td>
+        <td align="center">-</td>
+      </tr>
+      <tr>
+        <td align="center">Pixeldrain</td>
+        <td align="center"><a href="https://pixeldrain.com/u/AWNb287r" target="_blank">Download </a>(1.4 MB) </td>
+        <td align="center">-</td>
+      </tr>
+    </table>
+    <p>⚠️ <strong>Important Notes Before Running This Software</strong></p>
+    <p>Before using it, please read the following important information carefully.</p>
+    <p><strong> Safe and Clean Softwar</strong>es</p>
+    <p>This program is <strong data-start="453" data-end="541">completely safe, clean, and free from any viruses, malware, spyware, or harmful code</strong>.<br data-start="542" data-end="545">
+It is designed to run directly without installation.</p>
+    <p>⚠️ <strong>Antivirus False Positive Warning</strong></p>
+    <p>Some antivirus programs on Windows (including Windows Defender or third-party antivirus software) may incorrectly detect this program as a virus.</p>
+    <p>This is known as a <strong data-start="810" data-end="838">false positive detection</strong>, and it can happen because: <a href="notes230626.html">Read Here</a> </p>    </td>
+  </tr>
+</table>
+<p><span class="style6">Note:</span><br>
+  <span class="style7">For USB drives such as flash drives, memory cards, and eMMC drives, the S.M.A.R.T. data can be read properly by the program for original OEM products. However, for unofficial products, the program usually cannot read the S.M.A.R.T. data. In our experience, the S.M.A.R.T. data on unofficial drives is usually dummy data with unreasonable sizes and calculations.</span> <em><span class="style8">Follow the discussion below to learn how to buy a USB storage device safely and legally.</span><br>
+  <a href="https://security.stackexchange.com/questions/276974/how-can-i-safely-buy-a-usb-memory-stick" target="_blank">https://security.stackexchange.com/questions/276974/how-can-i-safely-buy-a-usb-memory-stick</a></em></p>
+<h2 class="style3">Features</h2>
+<ul>
+  <li>Per-drive health percentage and performance metric</li>
+  <li>Full <a href="https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology" target="_blank">S.M.A.R.T.</a> attribute table (ID, value, worst, raw, status)</li>
+  <li>Temperature / health / failure critical alerts via tray notifications</li>
+  <li>Hot-plug aware - USB drives detected on arrival</li>
+  <li>Per-drive history graph (health % and individual attribute over time) &lt;- <span class="style5">HDD Only </span></li>
+  <li>Save-screenshot feature</li>
+  <li>Multi-drive tray icons</li>
+</ul>
+<h2 class="style3">Compatibility</h2>
+<p><span class="style4"><a href="https://en.wikipedia.org/wiki/Windows_11" target="_blank">Windows 11</a>, <a href="https://en.wikipedia.org/wiki/Windows_10" target="_blank">Windows 10</a>, <a href="https://en.wikipedia.org/wiki/Windows_8.1" target="_blank">Windows 8.1</a>, <a href="https://en.wikipedia.org/wiki/Windows_8" target="_blank">Windows 8</a>, <a href="https://en.wikipedia.org/wiki/Windows_7" target="_blank">Windows 7</a>, <a href="https://en.wikipedia.org/wiki/Windows_Vista" target="_blank">Windows Vista</a></span><em> (x64-bit Recommended) </em></p>
+<hr>
+<p class="style12">Copyright &copy; 2026 ARImetic Inc. All Rights Reserved.</p>
+</body>
+</html>
