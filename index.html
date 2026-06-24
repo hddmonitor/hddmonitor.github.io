@@ -103,13 +103,16 @@ a:active {
     </table></td>
   </tr>
 </table>
-<p>Low-level <a href="https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology" target="_blank">S.M.A.R.T.</a> health monitor for ATA, USB (External, Enclosure), and NVMe drives on Windows.</p>
-<p><a href="/"><strong>HDDHealth</strong></a> Monitor reads raw <a href="https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology" target="_blank">S.M.A.R.T.</a> data directly from physical drives via <a href="https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol" target="_blank">DeviceIoControl </a>and presents it through a clean, modern GUI. It supports three drive types through their respective Windows IOCTLs:</p>
-<ul>
-  <li><strong>ATA / SATA</strong> drives via <span class="style2"><a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddscsi/ni-ntddscsi-ioctl_ata_pass_through_direct" target="_blank">IOCTL_ATA_PASS_THROUGH_DIRECT</a></span></li>
-  <li><strong>USB</strong> bridge chips (JMicron, ASMedia, Realtek, Cypress, etc.) via <span class="style2"><a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddscsi/ni-ntddscsi-ioctl_scsi_pass_through_direct" target="_blank">IOCTL_SCSI_PASS_THROUGH_DIRECT</a></span> using SAT (<a href="https://www.t10.org/ftp/t10/document.04/04-196r0.pdf" target="_blank">SCSI-ATA-Translation</a>)</li>
-  <li><strong>NVMe</strong> drives via <span class="style2"><a href="https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ni-winioctl-ioctl_storage_query_property" target="_blank">IOCTL_STORAGE_QUERY_PROPERTY</a></span>, reading Health Info Log <strong>0x02</strong></li>
-</ul>
+<p>Low-level <a href="docs.html#smart-attributes" target="_blank">S.M.A.R.T.</a> health monitor for ATA, USB (External, Enclosure), and NVMe drives on Windows.</p>
+<p><strong>HDD Health Monitor</strong> is a 100% free and open-source Windows utility that reads
+  raw <strong><a href="docs.html#smart-attributes">S.M.A.R.T.</a></strong> (Self-Monitoring, Analysis and Reporting Technology) data
+directly from your physical drives and presents it in a clean, easy-to-read interface. </p>
+<p> <a href="docs.html#smart-attributes">S.M.A.R.T.</a> is a built-in system found in almost every modern hard disk drive (HDD), solid-state
+  drive (SSD), NVMe drive, and many USB-connected drives. It continuously collects dozens of
+  internal measurements - such as read error rates, temperatures, reallocated sectors, and power-on
+  hours - that can indicate whether a drive is healthy or starting to fail. </p>
+<p> HDD Health Monitor makes all of this information visible to you at a glance, warns you before
+  problems become data loss, and keeps a historical record so you can track changes over time. </p>
 <table width="100%" border="0" cellpadding="5" cellspacing="5">
   <tr>
     <td width="40%" valign="top"><p><img src="img/overview.PNG" width="100%"></p></td>
